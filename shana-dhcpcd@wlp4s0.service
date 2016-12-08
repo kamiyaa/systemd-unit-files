@@ -1,6 +1,6 @@
 [Unit]
 Description=shana-dhcpcd@wlp4s0.service
-After=shana-supplicant@wlp4s0.service
+Requires=shana-supplicant@wlp4s0.service
 Wants=network.target
 Before=network.target network-online.target
 
