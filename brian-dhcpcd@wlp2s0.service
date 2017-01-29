@@ -1,8 +1,8 @@
 [Unit]
 Description=Lightweight DHCP client daemon
-Requires=shana-supplicant@%i.service
-After=shana-supplicant@%i.service
-Wants=network.target shana-supplicant@%i.service
+Requires=brian-supplicant@%i.service
+After=brian-supplicant@%i.service
+Wants=network.target brian-supplicant@%i.service
 Before=network.target network-online.target
 
 [Service]

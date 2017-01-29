@@ -2,12 +2,11 @@
 Description=WPA supplicant daemon (interface-specific version)
 Requires=sys-subsystem-net-devices-%i.device
 After=sys-subsystem-net-devices-%i.device
-Before=network.target shana-dhcpcd@%i.service
+Before=network.target brian-dhcpcd@%i.service
 Wants=network.target
 
 [Service]
 Type=simple
-ExecStartPre=ethtool -s enp0s25 wol d
 ExecStartPre=ip link set dev %I up
 ExecStart=/usr/sbin/wpa_supplicant -d -c/etc/wpa_supplicant/wpa_supplicant.conf -Dnl80211 -i%I -f /tmp/wpa_supplicant.log
 
