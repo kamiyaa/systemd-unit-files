@@ -7,11 +7,11 @@ Wants=network.target
 
 [Service]
 Type=simple
-ExecStartPre=ip link set dev %I up
+ExecStartPre=/bin/ip link set dev %I up
 ExecStart=/usr/sbin/wpa_supplicant -d -c/etc/wpa_supplicant/wpa_supplicant.conf -Dnl80211 -i%I -f /tmp/wpa_supplicant.log
 
-ExecStopPre=ip link set dev %I down
-ExecStop=killall -q wpa_supplicant
+ExecStopPre=/bin/ip link set dev %I down
+ExecStop=/bin/killall -q wpa_supplicant
 
 [Install]
 Alias=multi-user.target.wants/wpa_supplicant-nl80211@%i.service
