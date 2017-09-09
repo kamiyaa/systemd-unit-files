@@ -1,13 +1,8 @@
 # Makefile
 
 install:
-	mkdir -p /etc/systemd/system/multi-user.target.wants
-	cp shana-*.service /etc/systemd/system/multi-user.target.wants/
-
-install-brian:
-	mkdir -p /etc/systemd/system/multi-user.target.wants
-	cp brian-*.service /etc/systemd/system/multi-user.target.wants/
+	mkdir -p /etc/systemd/system
+	cp shana-*.service /etc/systemd/system/
 
 uninstall:
-	rm -rf /etc/systemd/system/multi-user.target.wants/shana-*.service
-	rm -rf /etc/systemd/system/multi-user.target.wants/brian-*.service
+	rm -rfv /etc/systemd/system/shana-*.service

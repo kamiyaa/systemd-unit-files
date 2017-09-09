@@ -1,0 +1,10 @@
+[Unit]
+Description=Setting terminal blanking to 30 seconds
+After=systemd-modules-load.service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/echo 30 > /sys/module/kernel/parameters/consoleblank
+
+[Install]
+WantedBy=getty.target

@@ -1,0 +1,10 @@
+[Unit]
+Description=Sets scheduler to bfq
+After=systemd-modules-load.service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/echo bfq > /sys/block/sda/queue/scheduler
+
+[Install]
+WantedBy=multi-user.target
