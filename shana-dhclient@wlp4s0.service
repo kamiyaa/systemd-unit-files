@@ -1,0 +1,15 @@
+[Unit]
+Description=Lightweight DHCP client daemon
+After=shana-supplicant@%i.service
+Wants=network.target shana-supplicant@%i.service
+Before=network.target network-online.target
+
+[Service]
+Type=forking
+ExecStartPre=/bin/mkdir /run/dhcp
+ExecStart=/sbin/dhclient -nw %I
+
+ExecStop=/bin/ip link set dev %I down
+
+[Install]
+WantedBy=multi-user.target
