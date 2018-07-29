@@ -1,0 +1,13 @@
+[Unit]
+Description=Wireless service
+Requires=sys-subsystem-net-devices-%i.device
+After=sys-subsystem-net-devices-%i.device
+Before=network.target iwd-dhcpcd@%i.service
+Wants=network.target
+
+[Service]
+ExecStart=/usr/libexec/iwd
+LimitNPROC=1
+
+[Install]
+WantedBy=multi-user.target
